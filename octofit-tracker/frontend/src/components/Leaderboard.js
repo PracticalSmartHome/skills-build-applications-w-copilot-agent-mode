@@ -4,16 +4,16 @@ function Leaderboard() {
   const [leaderboard, setLeaderboard] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/leaderboard/')
+    fetch('https://jubilant-goldfish-wrqqvggj44525g7x-8000.app.github.dev/api/leaderboard/')
       .then(response => response.json())
       .then(data => setLeaderboard(data))
       .catch(error => console.error('Error fetching leaderboard:', error));
   }, []);
 
   return (
-    <div>
-      <h1>Leaderboard</h1>
-      <table>
+    <div className="container mt-4">
+      <h1 className="text-center">Leaderboard</h1>
+      <table className="table table-striped">
         <thead>
           <tr>
             <th>Username</th>

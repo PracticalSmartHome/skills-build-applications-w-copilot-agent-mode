@@ -4,18 +4,21 @@ function Workouts() {
   const [workouts, setWorkouts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/workouts/')
+    fetch('https://jubilant-goldfish-wrqqvggj44525g7x-8000.app.github.dev/api/workouts/')
       .then(response => response.json())
       .then(data => setWorkouts(data))
       .catch(error => console.error('Error fetching workouts:', error));
   }, []);
 
   return (
-    <div>
-      <h1>Workouts</h1>
-      <ul>
+    <div className="container mt-4">
+      <h1 className="text-center">Workouts</h1>
+      <ul className="list-group">
         {workouts.map(workout => (
-          <li key={workout._id}>{workout.name} - {workout.description}</li>
+          <li key={workout._id} className="list-group-item">
+            <h5>{workout.name}</h5>
+            <p>{workout.description}</p>
+          </li>
         ))}
       </ul>
     </div>
